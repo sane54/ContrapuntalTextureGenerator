@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author alyssa
  */
-public class AtonalNoRepeat implements ModeModule {
+public class AtonalRepeatPrefer implements ModeModule {
     Random roll = new Random();
     private final int tonic = 0;
     
@@ -49,14 +49,15 @@ public class AtonalNoRepeat implements ModeModule {
         Integer previous_pitch_class = input_previous_pitch % 12;
         for (int i = -12; i< 13; i++) pitch_step_candidates.add(i);
         for (Integer pitch_step_candidate : pitch_step_candidates) {
-            if (pitch_step_candidate != 0 )pitch_candidates.add(pitch_step_candidate + input_previous_pitch);
+            pitch_candidates.add(pitch_step_candidate + input_previous_pitch);
         }
         
         return pitch_candidates;
     }
     @Override
     public Double getMelodicMotionProbability (Integer input_current_pitch_cand, Integer input_previous_pitch, Integer key_transpose ) {
-        Double motion_probability = 0.04;
+        Double motion_probability = 0.004;
+        if (input_current_pitch_cand.equals(input_previous_pitch) ) motion_probability = 0.9;
         return motion_probability;
     }
     @Override

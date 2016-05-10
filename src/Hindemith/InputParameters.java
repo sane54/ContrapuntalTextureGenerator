@@ -6,6 +6,8 @@
 package Hindemith;
 
 import Hindemith.ModeModules.AtonalNoRepeat;
+import Hindemith.ModeModules.Cblues1;
+import Hindemith.ModeModules.AtonalRepeatPrefer;
 import Hindemith.ModeModules.ChromaticTonic_keyChange;
 import Hindemith.ModeModules.Clydian_keyChange;
 import Hindemith.ModeModules.ModeModule;
@@ -72,6 +74,12 @@ public static void setModeModule (String this_mode_module) {
     }
     if (this_mode_module.contains("Atonal (w/o Repeat Notes)")) {
         my_mode_module = new AtonalNoRepeat();
+    }
+        if (this_mode_module.contains("Atonal (repeat pitch prefer)")) {
+        my_mode_module = new AtonalRepeatPrefer();
+    }
+        if (this_mode_module.contains("Blues")) {
+        my_mode_module = new Cblues1();
     }
 }
 public static void setPieceLength(int my_piece_length) {

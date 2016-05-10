@@ -32,6 +32,8 @@
                       <String fx:value="Chromatic Tonic" />
                       <String fx:value="Lydian" />
                       <String fx:value="Atonal (w/o Repeat Notes)" />
+                      <String fx:value="Atonal (repeat pitch prefer)" />
+                      <String fx:value="Blues" />
                     </FXCollections>
                   </items>
                 </ComboBox>
